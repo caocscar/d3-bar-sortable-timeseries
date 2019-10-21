@@ -24,7 +24,8 @@ async function readData() {
     .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-  DATA = await d3.csv('daily_snapshot.csv', type)
+  const fileLocation = 'https://gist.githubusercontent.com/caocscar/8cdb75721ea4f6c8a032a00ebc73516c/raw/854bbee2faffb4f6947b6b6c2424b18ca5a8970e/mlb2018.csv'
+  DATA = await d3.csv(fileLocation, type)
   chartDate = new Date(2018,3,3)
   data = filterData(chartDate)
   y.domain(data.map(d => d.team).reverse());
